@@ -12,16 +12,16 @@
     Ha = Ha bulan kedua(1 + rate)
        = ((N(1 + rate))(1 + rate))(1 + rate) ==> bulan ketiga
 */
-const calculator = document.getElementById("rates-calculator");
+const calculator = document.getElementById("interest-calculator");
 const container = document.getElementById("container");
 
-function countTotalInterest(loan, rates, ratesCounter) {
-  if (ratesCounter == 0) return loan;
+function countTotalInterest(loan, interest, interestCounter) {
+  if (interestCounter == 0) return loan;
 
-  return countTotalInterest(loan, rates, ratesCounter - 1) + loan * rates;
+  return countTotalInterest(loan, interest, interestCounter - 1) + loan * interest;
 }
 
-const createElement = (loan, rates, ratesCounter) => {
+const createElement = (loan, interest, interestCounter) => {
   const wrapper = document.createElement("div");
   const heading = document.createElement("h3");
   const result = document.createElement("p");
@@ -31,8 +31,8 @@ const createElement = (loan, rates, ratesCounter) => {
 
   result.innerText = countTotalInterest(
     Number(loan),
-    parseFloat(rates),
-    Number(ratesCounter)
+    parseFloat(interest),
+    Number(interestCounter)
   ).toLocaleString("id-ID");
   result.classList.add("text-xl", "text-center", "p-5");
 
@@ -44,23 +44,23 @@ calculator.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const loan = document.getElementById("loan").value;
-  const rates = document.getElementById("rates").value;
+  const interest = document.getElementById("interest").value;
   const loanDuration = document.getElementById("loan-duration").value;
-  const ratesPattern = document.getElementById("rates-pattern").value;
+  const interestPattern = document.getElementById("interest-pattern").value;
 
-  const ratesCounter = Math.floor(parseFloat(loanDuration / ratesPattern));
+  const interestCounter = Math.floor(parseFloat(loanDuration / interestPattern));
 
-  if (isNaN(rates)) {
+  if (isNaN(interest)) {
     alert("Masukkan angka pada input bunga");
     return;
   }
 
   document.getElementById("loan").value = "";
-  document.getElementById("rates").value = "";
+  document.getElementById("interest").value = "";
   document.getElementById("loan-duration").value = "";
-  document.getElementById("rates-pattern").value = "";
+  document.getElementById("interest-pattern").value = "";
 
-  const wrapper = createElement(loan, rates, ratesCounter);
+  const wrapper = createElement(loan, interest, interestCounter);
 
   container.innerHTML = "";
   container.appendChild(wrapper);
