@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KALKULATOR BUNGA MAJEMUK</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="flex flex-col justify-center items-center">
+    <h1 class="text-4xl font-bold p-5 text-center">KALKULATOR BUNGA MAJEMUK</h1>
+    <form
+      id="rates-calculator"
+      class="flex flex-col py-3 m-3 text-Xl items-center justify-center rounded-xl"
+    >
+      <label>
+        <p>Banyak pinjaman:</p>
+        <input
+          type="number"
+          id="loan"
+          class="border-2 mb-2 py-1 px-2 w-2xs rounded-xl"
+        />
+      </label>
+      <label>
+        <p>Bunga (dalam bentuk desimal):</p>
+        <input
+          type="text"
+          id="rates"
+          class="border-2 mb-2 py-1 px-2 w-2xs rounded-xl"
+        />
+      </label>
+      <label>
+        <p>Lama pinjaman:</p>
+        <input
+          type="number"
+          id="loan-duration"
+          class="border-2 mb-2 py-1 px-2 w-2xs rounded-xl"
+        />
+      </label>
+      <label>
+        <p>Setiap Berapa Bulan Bunga Dibayar:</p>
+        <input
+          type="number"
+          id="rates-pattern"
+          class="border-2 mb-2 py-1 px-2 w-2xs rounded-xl"
+        />
+      </label>
+      <button
+        type="submit"
+        class="border-2 w-[30%] font-bold my-2 py-2 px-4 rounded-2xl bg-blue-600 text-center text-white hover:bg-blue-700 focus:border-blue-800 focus:bg-blue-500 cursor-pointer"
+      >
+        Hitung
+      </button>
+    </form>
+
+    <section id="container" class="text-center"></section>
+    <script src="./main.js"></script>
+  </body>
+</html>
