@@ -18,7 +18,9 @@ const container = document.getElementById("container");
 function countTotalInterest(loan, interest, interestCounter) {
   if (interestCounter == 0) return loan;
 
-  return countTotalInterest(loan, interest, interestCounter - 1) + loan * interest;
+  return (
+    countTotalInterest(loan * (1 + interest), interest, interestCounter - 1)
+  );
 }
 
 const createElement = (loan, interest, interestCounter) => {
@@ -29,10 +31,12 @@ const createElement = (loan, interest, interestCounter) => {
   heading.innerText = "Hasil:";
   heading.classList.add("text-3xl", "font-bold", "text-center");
 
-  result.innerText = countTotalInterest(
-    Number(loan),
-    parseFloat(interest),
-    Number(interestCounter)
+  result.innerText = parseFloat(
+    countTotalInterest(
+      parseFloat(loan),
+      parseFloat(interest),
+      Number(interestCounter)
+    )
   ).toLocaleString("id-ID");
   result.classList.add("text-xl", "text-center", "p-5");
 
@@ -48,7 +52,9 @@ calculator.addEventListener("submit", (e) => {
   const loanDuration = document.getElementById("loan-duration").value;
   const interestPattern = document.getElementById("interest-pattern").value;
 
-  const interestCounter = Math.floor(parseFloat(loanDuration / interestPattern));
+  const interestCounter = Math.floor(
+    parseFloat(loanDuration / interestPattern)
+  );
 
   if (isNaN(interest)) {
     alert("Masukkan angka pada input bunga");
