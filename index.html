@@ -8,12 +8,15 @@
   </head>
   <body class="flex flex-col justify-center items-center">
     <h1 class="text-4xl font-bold p-5 text-center">KALKULATOR BUNGA MAJEMUK</h1>
+
+    <!-- Form Start -->
     <form
       id="interest-calculator"
       class="flex flex-col py-3 m-3 text-Xl items-center justify-center rounded-xl"
     >
+      <!-- Default Input Start -->
       <label>
-        <p>Banyak pinjaman:</p>
+        <p>Banyak Pinjaman:</p>
         <input
           type="number"
           id="loan"
@@ -21,7 +24,7 @@
         />
       </label>
       <label>
-        <p>Bunga (dalam bentuk desimal):</p>
+        <p>Bunga (Dalam Bentuk Desimal ==> 2.33):</p>
         <input
           type="text"
           id="interest"
@@ -29,7 +32,7 @@
         />
       </label>
       <label>
-        <p>Lama pinjaman:</p>
+        <p>Lama Pinjaman:</p>
         <input
           type="number"
           id="loan-duration"
@@ -37,13 +40,48 @@
         />
       </label>
       <label>
-        <p>Setiap Berapa Bulan Bunga Dibayar:</p>
+        <p>Setiap Berapa Bulan Terkena Bunga:</p>
         <input
           type="number"
           id="interest-pattern"
           class="border-2 mb-2 py-1 px-2 w-2xs rounded-xl"
         />
       </label>
+      <!-- Default Input End -->
+
+      <!-- Fined Start -->
+      <label class="m-3">
+        <input type="checkbox" id="isFined" /> Apakah Terkena Denda?
+      </label>
+
+      <div id="gotFined" class="hidden">
+        <label>
+          <p>Banyak Denda:</p>
+          <input
+            type="number"
+            id="fined"
+            class="border-2 mb-2 py-1 px-2 w-2xs rounded-xl"
+          />
+        </label>
+        <label>
+          <p>Lama Terkena Denda:</p>
+          <input
+            type="number"
+            id="fined-duration"
+            class="border-2 mb-2 py-1 px-2 w-2xs rounded-xl"
+          />
+        </label>
+        <label>
+          <p>Setiap Berapa Bulan Terkena Denda:</p>
+          <input
+            type="number"
+            id="fined-pattern"
+            class="border-2 mb-2 py-1 px-2 w-2xs rounded-xl"
+          />
+        </label>
+      </div>
+      <!-- Fined End -->
+
       <button
         type="submit"
         class="border-2 w-[30%] font-bold my-2 py-2 px-4 rounded-2xl bg-blue-600 text-center text-white hover:bg-blue-700 focus:border-blue-800 focus:bg-blue-500 cursor-pointer"
@@ -51,8 +89,9 @@
         Hitung
       </button>
     </form>
+    <!-- Form End -->
 
     <section id="container" class="text-center"></section>
-    <script src="./src/main.js"></script>
+    <script defer type="module" src="./src/main.js"></script>
   </body>
 </html>
